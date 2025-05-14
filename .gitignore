@@ -1,0 +1,22 @@
+# Node modules
+**/node_modules/
+
+# Ambiente
+**/.env
+
+# Build outputs
+dist/
+build/
+
+# Logs
+*.log
+
+# IDEs
+.vscode/
+.idea/
+
+# back-end
+backend/.env
+
+# front-end
+frontend/.env
