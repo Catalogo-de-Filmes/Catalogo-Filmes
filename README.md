@@ -11,29 +11,6 @@ Este é um projeto de site de catálogo de filmes desenvolvido por uma equipe de
 
 ---
 
-## 📁 Estrutura de Pastas
-
-```
-catalogo-filmes/
-├── backend/               # API, ORM e conexão com banco e Cloudinary
-│   ├── prisma/
-│   ├── src/
-│   ├── .env               # ⚠️ NÃO COMITAR - usar .env.example
-│   ├── .env.example
-│   └── package.json
-│
-├── frontend/              # Aplicação React (Vite)
-│   ├── src/
-│   ├── public/
-│   ├── .env               # ⚠️ NÃO COMITAR - usar .env.example
-│   ├── .env.example
-│   └── package.json
-│
-└── .gitignore             # Ignora os arquivos .env e node_modules
-```
-
----
-
 ## 🧪 Requisitos para rodar o projeto localmente
 
 * Node.js (última versão LTS)
