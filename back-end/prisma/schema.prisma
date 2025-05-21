@@ -31,7 +31,7 @@ model Usuario {
 
 model Categoria {
   id        Int              @id @default(autoincrement())
-  nome      String
+  nome      String           @unique
   filmes    CategoriaFilme[]
 }
 
