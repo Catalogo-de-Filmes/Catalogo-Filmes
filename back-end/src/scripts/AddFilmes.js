@@ -17,7 +17,6 @@ async function main() {
             // ID de cada categoria: 1 - Ação; 2 - Animação; 3 - Aventura; 4 - Comédia; 5 - Documentário; 
             // 6 - Drama; 7 - Fantasia; 8 - Faroeste; 9 - Ficção Científica; 10 - Guerra; 11 - Musical;
             // 12 - Policial; 13 - Romance; 14 - Suspense; 15 - Terror;
-
           { categoria: { connect: { id: 1 } } }, // Adicione quantas linhas necessáras para as categorias
           { categoria: { connect: { id: 9 } } }  
         ]
