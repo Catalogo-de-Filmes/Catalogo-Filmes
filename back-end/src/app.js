@@ -12,3 +12,8 @@ module.exports = app;
 // Rotas de autenticação
 const authRoutes = require('./routes/authRoutes');
 app.use('/api', authRoutes);
+
+
+// Rotas Adicionar/Remover/Listar filmes favoritos
+const favoriteRoutes = require('./routes/favoriteRoutes');
+app.use('/api', favoriteRoutes);
