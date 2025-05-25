@@ -55,3 +55,9 @@ model Favorito {
 
   @@unique([usuarioId, filmeId])     
 }
+
+model TokenBlacklist {
+  id        Int      @id @default(autoincrement())
+  token     String   @unique
+  createdAt DateTime @default(now())
+}
