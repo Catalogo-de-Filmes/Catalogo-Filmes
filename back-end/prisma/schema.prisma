@@ -1,10 +1,8 @@
 generator client {
   provider = "prisma-client-js"
-<<<<<<< HEAD
+HEAD
   output ="./node_modules/@prisma/client"
-=======
-  output = "./node_modules/@prisma/client"
->>>>>>> 92babae1e0b441317b863375b515ec7b143517a6
+92babae1e0b441317b863375b515ec7b143517a6
 }
 
 datasource db {
