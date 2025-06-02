@@ -6,7 +6,7 @@ Funcionalidades Back-end:
 () 5 - Integração com o Cloudinary
 () 6 - Permitir que o usuário adicione filmes ao catálogo
 () 7 - Listar filmes adicionados pelo usuário
-() 8 - Mecanismo de pesquisa de filmes
+(✅) 8 - Mecanismo de pesquisa de filmes
 
 Páginas Front-end:
 () 1 - Tela de login
