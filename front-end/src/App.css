@@ -1,42 +1,202 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+/* Estilos gerais */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.app {
+  text-align: center;
+}
+
+/* Cabeçalho */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #1e90ff; /* Azul */
+  color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.menu-icon,
+.user-icon {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Tela de Login */
+.login-screen {
   padding: 2rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.login-input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #333;
+  border-radius: 5px;
+  width: 80%;
+  max-width: 300px;
+  background-color: #1f1f1f;
+  color: #ffffff;
+}
+
+.login-input::placeholder {
+  color: #b3b3b3;
+}
+
+.login-button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #1e90ff;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login-button:hover {
+  background-color: #0077cc;
+  transform: scale(1.05); /* Adiciona um efeito de escala ao hover */
+}
+
+/* Tela de Usuário */
+.user-screen {
+  padding: 2rem;
+  text-align: center;
+}
+
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ffffff;
+  cursor: pointer; /* Indica que o círculo é clicável */
+  transition: transform 0.3s ease;
+}
+
+.user-image:hover {
+  transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+}
+
+.user-name-input,
+.user-image-input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #333;
+  border-radius: 5px;
+  width: 80%;
+  max-width: 300px;
+  background-color: #1f1f1f;
+  color: #ffffff;
+}
+
+.user-name-input::placeholder,
+.user-image-input::placeholder {
+  color: #b3b3b3;
+}
+
+/* Grade de Filmes */
+.movie-grid {
+  padding: 2rem;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Ajuste para responsividade */
+  gap: 1rem; /* Espaçamento entre os filmes */
+}
+
+.movie-card {
+  background-color: #1f1f1f;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  position: relative; /* Necessário para posicionar a estrela */
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.movie-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.movie-title {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  color: #e50914;
+}
+
+.movie-description {
+  font-size: 0.8rem;
+  color: #b3b3b3;
+  margin: 0.5rem 0;
+}
+
+/* Estrela de Favoritos */
+.favorite-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #ffffff;
+  cursor: pointer;
+  position: absolute; /* Posiciona a estrela no canto superior direito */
+  top: 10px;
+  right: 10px;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.favorite-button.favorited {
+  color: #FFFA72; /* Estrela amarela */
+}
+
+.favorite-button:hover {
+  transform: scale(1.2);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas menores */
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (max-width: 480px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* 1 coluna em telas muito pequenas */
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
