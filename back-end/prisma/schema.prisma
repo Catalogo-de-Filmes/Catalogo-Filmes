@@ -13,7 +13,7 @@ datasource db {
 model Filme {
   id            Int              @id @default(autoincrement())
   nome          String
-  descricao     String
+  descricao     String           @db.Text
   avaliacao     Float?           
   ondeAssistir  String?
   capaUrl       String
