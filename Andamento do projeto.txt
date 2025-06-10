@@ -1,0 +1,19 @@
+Funcionalidades Back-end:
+(✅) 1 - Criar conta
+(✅) 2 - Login
+(✅) 3 - Logout
+(✅) 4 - Adicionar/Remover/Listar filmes favoritos
+() 5 - Integração com o Cloudinary
+() 6 - Permitir que o usuário adicione filmes ao catálogo
+() 7 - Listar filmes adicionados pelo usuário
+(✅) 8 - Mecanismo de pesquisa de filmes
+
+Páginas Front-end:
+() 1 - Tela de login
+() 2 - Tela de cadastro
+() 3 - Tela inicial do site
+() 4 - Tela do filme
+() 5 - Tela para o usuário adicionar algum filme
+() 6 - Tela de perfil do usuário
+() 7 - Tela com os filmes favoritos do usuário 
+() 8 - Tela com os filmes adicionados pelo usuário
