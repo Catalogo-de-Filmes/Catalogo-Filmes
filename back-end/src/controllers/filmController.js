@@ -1,11 +1,9 @@
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
-
 const buscarFilmes = async (req, res) => {
   const { nome, categoria } = req.query;
 
-  // Validação
   if ((nome && typeof nome !== 'string') || (categoria && typeof categoria !== 'string')) {
     return res.status(400).json({ erro: 'Parâmetros inválidos' });
   }
@@ -82,5 +80,6 @@ const criarFilme = async (req, res) => {
 };
 
 module.exports = {
-  buscarFilmes
+  buscarFilmes,
+  criarFilme
 };
