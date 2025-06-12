@@ -3,42 +3,36 @@ const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 const app = express();
 
-// 🔐 Middleware de Limite de Requisições
+// ✅ IMPORTA MIDDLEWARE
+const autenticarToken = require('./middlewares/auth');
+
+// 🔐 Limite de requisições
 const limiter = rateLimit({
-  windowMs: 1 * 60 * 1000, // 1 minuto
-  max: 30, // Limite de 30 requisições por minuto
+  windowMs: 1 * 60 * 1000,
+  max: 30,
   message: 'Muitas requisições feitas em pouco tempo. Tente novamente em alguns instantes.'
 });
 app.use(limiter);
 
-
-// ✅ Habilita CORS para o front-end
-app.use(cors({
-  origin: 'http://localhost:5173'
-}));
-
-// ✅ Middleware para interpretar JSON
+// ✅ CORS e JSON
+app.use(cors({ origin: 'http://localhost:5173' }));
 app.use(express.json());
 
-// 📁 Rotas de cadastro
+// 📁 Rotas públicas
 const userRoutes = require('./routes/userRoutes');
-app.use('/api', userRoutes);
-
-// 📁 Rotas de autenticação
 const authRoutes = require('./routes/authRoutes');
-app.use('/api', authRoutes);
-
-// 📁 Rotas de logout
 const logoutRoutes = require('./routes/logoutRoutes');
+app.use('/api', userRoutes);
+app.use('/api', authRoutes);
 app.use('/api', logoutRoutes);
 
-// 📁 Rotas para adicionar/remover/listar favoritos
+// 📁 Rotas protegidas
 const favoriteRoutes = require('./routes/favoriteRoutes');
-app.use('/api', favoriteRoutes);
-
-// 📁 Rotas de pesquisa de filmes
 const filmeRoutes = require('./routes/filmRoutes');
-app.use('/api', filmeRoutes);
+const categoryRoutes = require('./routes/categoryRoutes');
+app.use('/api', autenticarToken, favoriteRoutes);
+app.use('/api', autenticarToken, filmeRoutes);
+app.use('/api', autenticarToken, categoryRoutes);
 
 // Exporta o app para ser usado no index.js
 module.exports = app;

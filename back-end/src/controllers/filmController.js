@@ -50,6 +50,36 @@ const buscarFilmes = async (req, res) => {
   }
 };
 
+// 🔽 Função adicionada para criar um novo filme
+const criarFilme = async (req, res) => {
+  try {
+    const { nome, descricao, avaliacao, ondeAssistir, capaUrl, usuarioId, categoriasIds } = req.body;
+
+    const novoFilme = await prisma.filme.create({
+      data: {
+        nome,
+        descricao,
+        avaliacao,
+        ondeAssistir,
+        capaUrl,
+        usuario: { connect: { id: usuarioId } },
+        categorias: {
+          create: categoriasIds.map(id => ({
+            categoria: { connect: { id } }
+          }))
+        }
+      },
+      include: {
+        categorias: true
+      }
+    });
+
+    res.status(201).json(novoFilme);
+  } catch (error) {
+    console.error("Erro ao criar filme:", error);
+    res.status(500).json({ erro: "Erro ao criar filme" });
+  }
+};
 
 module.exports = {
   buscarFilmes
