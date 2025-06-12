@@ -1,49 +1,88 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './home.css';
 import { FaStar } from 'react-icons/fa';
 
 const genres = [
   {
-    title: 'Ação e comédia',
-    images: [
-      'https://picsum.photos/id/1015/200/300',
-      'https://picsum.photos/id/1016/200/300',
-      'https://picsum.photos/id/1018/200/300',
-      'https://picsum.photos/id/1020/200/300',
-      'https://picsum.photos/id/1024/200/300',
-      'https://picsum.photos/id/1027/200/300',
+    title: 'Ação e Comédia',
+    filmes: [
+      {
+        id: 1,
+        titulo: 'Avatar',
+        genero: 'Ação, Ficção',
+        descricao: 'Um épico de ficção científica dirigido por James Cameron.',
+        nota: '5.9',
+        imagem: 'https://image.tmdb.org/t/p/w300/6EiRUJpuoeQPghrs3YNktfnqOVh.jpg'
+      },
+      {
+        id: 2,
+        titulo: 'Toy Story',
+        genero: 'Animação, Comédia',
+        descricao: 'Aventura dos brinquedos que ganham vida quando ninguém está olhando.',
+        nota: '7.2',
+        imagem: 'https://image.tmdb.org/t/p/w300/uXDfjJbdP4ijW5hWSBrPrlKpxab.jpg'
+      },
+      {
+        id: 3,
+        titulo: 'Bohemian Rhapsody',
+        genero: 'Drama, Biografia',
+        descricao: 'A história de Freddie Mercury e do Queen.',
+        nota: '8.0',
+        imagem: 'https://image.tmdb.org/t/p/w300/lHu1wtNaczFPGFDTrjCSzeLPTKN.jpg'
+      },
     ],
   },
   {
-    title: 'Drama e terror',
-    images: [
-      'https://picsum.photos/id/1032/200/300',
-      'https://picsum.photos/id/1033/200/300',
-      'https://picsum.photos/id/1035/200/300',
-      'https://picsum.photos/id/1036/200/300',
-      'https://picsum.photos/id/1038/200/300',
-      'https://picsum.photos/id/1039/200/300',
+    title: 'Drama e Terror',
+    filmes: [
+      {
+        id: 4,
+        titulo: 'O Exorcista',
+        genero: 'Terror, Suspense',
+        descricao: 'Um clássico aterrorizante do cinema de horror.',
+        nota: '7.4',
+        imagem: 'https://image.tmdb.org/t/p/w300/4ucLGcXVVSVnsfkGtbLY4XAius8.jpg'
+      },
+      {
+        id: 5,
+        titulo: 'O Poderoso Chefão',
+        genero: 'Drama, Crime',
+        descricao: 'A saga da família Corleone no submundo da máfia.',
+        nota: '9.2',
+        imagem: 'https://image.tmdb.org/t/p/w300/3bhkrj58Vtu7enYsRolD1fZdja1.jpg'
+      },
+      {
+        id: 6,
+        titulo: 'Joker',
+        genero: 'Drama, Crime',
+        descricao: 'Origem sombria do arqui-inimigo do Batman.',
+        nota: '8.5',
+        imagem: 'https://image.tmdb.org/t/p/w300/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg'
+      },
     ],
   },
 ];
 
-const Home = () => {
+export default function Home() {
   const [favoritos, setFavoritos] = useState({});
+  const navigate = useNavigate();
 
-  const toggleFavorito = (genreIndex, imageIndex) => {
-    const key = `${genreIndex}-${imageIndex}`;
-    setFavoritos((prev) => ({
-      ...prev,
-      [key]: !prev[key],
-    }));
+  const toggleFavorito = (filme) => {
+    setFavoritos(prev => ({ ...prev, [filme.id]: !prev[filme.id] }));
+    navigate('/favorites', { state: { filme } });
+  };
+
+  const goToDetails = (filme) => {
+    navigate('/favorites', { state: { filme } });
   };
 
   return (
     <div className="home-container">
       <aside className="side-menu">
-        <button>Perfil</button>
-        <button>Home</button>
-        <button>Favoritos</button>
+        <button onClick={() => navigate('/profile')}>Perfil</button>
+        <button onClick={() => navigate('/')}>Home</button>
+        <button onClick={() => navigate('/favorites')}>Favoritos</button>
       </aside>
 
       <main className="main-content">
@@ -53,7 +92,7 @@ const Home = () => {
           <div className="actions">
             <button
               className="cadastro-button"
-              onClick={() => window.location.href = '/cadastro'}
+              onClick={() => navigate('/cadastro')}
             >
               Cadastrar Filme
             </button>
@@ -61,33 +100,31 @@ const Home = () => {
           </div>
         </header>
 
-        <section className="carousel">
-          <div className="carousel-images">
-            {[1010, 1011, 1012, 1013, 1014].map((id) => (
-              <img
-                key={id}
-                src={`https://picsum.photos/id/${id}/200/300`}
-                alt="banner"
-              />
-            ))}
-          </div>
-        </section>
-
-        {genres.map((genre, genreIndex) => (
-          <section key={genreIndex} className="genre-section">
-            <h2>{genre.title}</h2>
+        {genres.map((categoria) => (
+          <section key={categoria.title} className="genre-section">
+            <h2>{categoria.title}</h2>
             <div className="movie-grid">
-              {genre.images.map((src, imageIndex) => {
-                const key = `${genreIndex}-${imageIndex}`;
-                const isFavorito = favoritos[key];
-
+              {categoria.filmes.map((filme) => {
+                const isFav = favoritos[filme.id];
                 return (
-                  <div key={key} className="movie-item">
-                    <img src={src} alt={`movie-${imageIndex}`} />
-                    <FaStar
-                      className={`star-icon ${isFavorito ? 'ativo' : ''}`}
-                      onClick={() => toggleFavorito(genreIndex, imageIndex)}
-                    />
+                  <div key={filme.id} className="movie-item">
+                    <img src={filme.imagem} alt={filme.titulo} />
+                    <div className="movie-info-overlay">
+                      <h3>{filme.titulo}</h3>
+                      <p className="movie-note">{filme.nota.replace('.', ',')}/10</p>
+                    </div>
+                    <div className="movie-actions">
+                      <FaStar
+                        className={`star-icon ${isFav ? 'ativo' : ''}`}
+                        onClick={() => toggleFavorito(filme)}
+                      />
+                      <button
+                        className="details-button"
+                        onClick={() => goToDetails(filme)}
+                      >
+                        Detalhes
+                      </button>
+                    </div>
                   </div>
                 );
               })}
@@ -97,6 +134,4 @@ const Home = () => {
       </main>
     </div>
   );
-};
-
-export default Home;
+}
