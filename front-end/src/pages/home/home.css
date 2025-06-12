@@ -120,4 +120,24 @@ body {
   .star-icon.ativo {
     color: #FFD700;
   }
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .cadastro-button {
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .cadastro-button:hover {
+    background-color: #3730a3;
+  }
   

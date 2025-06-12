@@ -50,7 +50,15 @@ const Home = () => {
         <header className="top-bar">
           <button className="menu-button">☰</button>
           <div className="logo">CF</div>
-          <button className="search-button">🔍</button>
+          <div className="actions">
+            <button
+              className="cadastro-button"
+              onClick={() => window.location.href = '/cadastro'}
+            >
+              Cadastrar Filme
+            </button>
+            <button className="search-button">🔍</button>
+          </div>
         </header>
 
         <section className="carousel">
@@ -92,4 +100,3 @@ const Home = () => {
 };
 
 export default Home;
-
