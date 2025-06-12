@@ -36,9 +36,9 @@ export default function PesquisaFilmes() {
       <div className="grid gap-4">
         {filmes.map((filme) => (
           <div key={filme.id} className="flex gap-4 border rounded p-4 shadow">
-            <img src={filme.capaUrl} alt={filme.titulo} className="w-32 h-48 object-cover rounded" />
+            <img src={filme.capaUrl} alt={filme.nome} className="w-32 h-48 object-cover rounded" />
             <div>
-              <h2 className="text-xl font-bold">{filme.titulo}</h2>
+              <h2 className="text-xl font-bold">{filme.nome}</h2>
               <p className="text-sm text-gray-600 mb-2">{filme.descricao}</p>
               <span className="text-yellow-600 font-semibold">⭐ {filme.avaliacao}</span>
             </div>
