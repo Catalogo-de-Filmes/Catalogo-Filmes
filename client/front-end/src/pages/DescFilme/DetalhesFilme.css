@@ -1,0 +1,181 @@
+.loading-div{
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(30, 30, 30, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.detalhes-filme {
+  padding: 2rem;
+  color: white;
+  background-color: #1E1E1E;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.top-bar .logo {
+  margin: auto;
+}
+
+.top-bar .btn-back {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #484848;
+  font-size: 1.5rem;
+  transition: all 0.1s ease;
+}
+
+.top-bar .btn-back:hover {
+  color: #121212;
+}
+
+
+.detalhes-container {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.poster-filme {
+  width: 250px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.info-filme {
+  flex: 1;
+}
+
+.info-filme h1 {
+  font-size: 40px;
+  margin-bottom: 1rem;
+}
+
+.estrela-botao {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nota {
+  margin-top: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.nota-titulo {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.nota2 {
+  font-size: 22px;
+  color: #FFFA72;
+}
+
+.onde-assistir {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.onde-assistir-titulo {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.onde-assistir-info {
+  font-size: 22px;
+  color: #00ADEF;
+}
+
+.descricao {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.sinopse {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.sinopse-info {
+  font-size: 22px;
+  text-align: justify;
+  color: #B0B0B0;
+}
+
+.recomendados {
+  margin-top: 2rem;
+  border-top: 2px solid #333;
+}
+
+.recomendados h2 {
+  font-size: 34px;
+  margin-bottom: 2rem;
+  color: #00ADEF;
+}
+
+.filmes-recomendados {
+  display: flex;
+  gap: 1rem;
+}
+
+.filmes-recomendados img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 8px;
+
+}
+
+.recomendado-item {
+  transition: transform 0.2s ease;
+}
+
+.recomendado-item:hover {
+  transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
+  .detalhes-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .poster-filme {
+    width: 200px;
+    height: 300px;
+  }
+
+  .info-filme h1 {
+    font-size: 32px;
+  }
+
+  .nota-titulo, .onde-assistir-titulo, .sinopse {
+    font-size: 16px;
+  }
+
+  .nota2, .onde-assistir-info, .sinopse-info {
+    font-size: 18px;
+  }
+
+  .recomendados h2 {
+    font-size: 28px;
+  }
+  
+}

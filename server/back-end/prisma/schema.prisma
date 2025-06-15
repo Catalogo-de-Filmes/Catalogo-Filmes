@@ -1,0 +1,63 @@
+generator client {
+  provider = "prisma-client-js"
+  
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Filme {
+  id            Int              @id @default(autoincrement())
+  nome          String
+  descricao     String           @db.Text
+  avaliacao     Float?           
+  ondeAssistir  String?
+  capaUrl       String
+  categorias    CategoriaFilme[]
+  favoritos     Favorito[]       
+  usuario        Usuario @relation("FilmesDoUsuario", fields:[usuarioId], references:[id])
+  usuarioId      Int
+}
+
+model Usuario {
+  id              Int          @id @default(autoincrement())
+  nome            String
+  email           String       @unique
+  senha           String
+  filmesAdicionados Filme[]    @relation("FilmesDoUsuario")
+  favoritos       Favorito[]
+}
+
+model Categoria {
+  id        Int              @id @default(autoincrement())
+  nome      String           @unique
+  filmes    CategoriaFilme[]
+}
+
+model CategoriaFilme {
+  id          Int       @id @default(autoincrement())
+  filme       Filme     @relation(fields: [filmeId], references: [id])
+  filmeId     Int
+  categoria   Categoria @relation(fields: [categoriaId], references: [id])
+  categoriaId Int
+
+  @@unique([filmeId, categoriaId])   // evita duplicidade
+}
+
+model Favorito {
+  id        Int      @id @default(autoincrement())
+  usuario   Usuario  @relation(fields: [usuarioId], references: [id])
+  usuarioId Int
+  filme     Filme    @relation(fields: [filmeId], references: [id])
+  filmeId   Int
+
+  @@unique([usuarioId, filmeId])     
+}
+
+model TokenBlacklist {
+  id        Int      @id @default(autoincrement())
+  token     String   @unique
+  createdAt DateTime @default(now())
+}

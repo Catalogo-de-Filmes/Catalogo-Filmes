@@ -1,0 +1,65 @@
+/* Estilo da tela de perfil */
+.profile-screen {
+  height: 100vh;
+  background: linear-gradient(to bottom, #1e1e1e, #121212);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border: 1px solid #ffffff;
+}
+
+/* Cabeçalho azul com botões */
+.profile-header {
+  width: 100vh;
+  background: linear-gradient(to right, #0072ff, #00c6ff);
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.profile-header .search-button {
+  background: none;
+  cursor: pointer;
+  color: #121212;
+  font-size: 24px;
+}
+
+.profile-header .logo {
+  margin: auto;
+}
+
+/* Conteúdo do perfil */
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+.user-avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-avatar img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 3px solid white;
+  object-fit: cover;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+}
+
+.username {
+  margin-top: 1rem;
+  background-color: #1e90ff;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+}

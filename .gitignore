@@ -15,8 +15,11 @@ build/
 .vscode/
 .idea/
 
+# Outros
+.DS_Store
+
 # back-end
-backend/.env
+server/backend/.env
 
 # front-end
-frontend/.env
+client/frontend/.env

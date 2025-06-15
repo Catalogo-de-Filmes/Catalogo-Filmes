@@ -1,0 +1,225 @@
+.loading {
+
+  background-color: rgba(30, 30, 30, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Container geral */
+.favorites-page {
+  background-color: #1E1E1E;
+  min-height: 100vh;
+  padding: 20px;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.favorites-empty {
+  background-color: #1E1E1E;
+  display: flex;
+  flex-direction: column-reverse;
+  min-height: 100vh;
+  padding: 20px;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Header */
+.top-bar {
+  background: linear-gradient(to right, #0072ff, #00c6ff);
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.top-bar .logo {
+  margin: auto;
+}
+
+.top-bar .btn-back {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #484848;
+  font-size: 1.5rem;
+  transition: all 0.1s ease;
+}
+
+.top-bar .btn-back:hover {
+  color: #121212;
+}
+
+/* Card de detalhes */
+.fav-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.fav-card {
+  background: linear-gradient(to right, #2a2a3d, #1f1f2f);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.fav-card:hover {
+  transform: scale(1.01);
+}
+
+.fav-cover {
+  width: 250px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid #444;
+}
+
+/* Informações do filme */
+.fav-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.fav-movie-title {
+  font-size: 36px;
+  margin: 0;
+}
+
+.nota {
+  margin-top: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.nota-titulo {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.nota2 {
+  font-size: 22px;
+  color: #FFFA72;
+}
+
+.onde-assistir {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.onde-assistir-titulo {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.onde-assistir-info {
+  font-size: 22px;
+  color: #00ADEF;
+}
+
+.descricao {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.sinopse {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.sinopse-info {
+  font-size: 22px;
+  text-align: justify;
+  color: #B0B0B0;
+}
+
+/* Meta e avaliação */
+.fav-meta {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fav-rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1.1rem;
+  color: #facc15;
+}
+
+.fav-rating strong {
+  color: #fff;
+}
+
+.btn-evaluate {
+  background: #4f46e5;
+  border: none;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-evaluate:hover {
+  background: #3730a3;
+}
+
+/* Estado sem filme */
+.favorites-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  gap: 16px;
+  color: #ccc;
+}
+
+.favorites-empty p {
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .fav-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .fav-cover {
+    width: 200px;
+    height: 300px;
+  }
+
+  .fav-info {
+    margin-top: 16px;
+  }
+
+  .fav-movie-title {
+    font-size: 28px;
+  }
+
+  .nota-titulo, .onde-assistir-titulo, .sinopse {
+    font-size: 16px;
+  }
+
+  .nota2, .onde-assistir-info, .sinopse-info {
+    font-size: 18px;
+  }
+  
+}
