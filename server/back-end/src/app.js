@@ -7,7 +7,7 @@ const app = express();
 // ✅ Habilita CORS para o front-end
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://seu-site.vercel.app' // ← adicione o domínio real após o deploy
+  'https://catalogo-filmes-green.vercel.app/' // ← adicione o domínio real após o deploy
 ];
 
 app.use(cors({
