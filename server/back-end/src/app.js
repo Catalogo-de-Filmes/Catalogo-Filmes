@@ -5,9 +5,18 @@ const app = express();
 
 
 // ✅ Habilita CORS para o front-end
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://seu-site.vercel.app' // ← adicione o domínio real após o deploy
+];
+
 app.use(cors({
-  origin: 'http://localhost:5173'
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) return callback(null, true);
+    callback(new Error('Not allowed by CORS'));
+  }
 }));
+
 
 // 🔐 Middleware de Limite de Requisições
 const limiter = rateLimit({
