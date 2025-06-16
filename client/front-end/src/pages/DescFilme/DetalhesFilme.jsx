@@ -119,7 +119,7 @@ export default function DetalhesFilme() {
             <div key={rec.id} className="recomendado-item">
               <Link to={`/filme/${rec.id}`} key={rec.id} className="recomendado-link">
                 <img src={rec.capaUrl} alt={rec.nome} />
-                <p>{rec.nome}</p>
+                <p className='recomendado-nome'>{rec.nome}</p>
               </Link>
             </div>
           ))}

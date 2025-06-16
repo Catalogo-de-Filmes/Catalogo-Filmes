@@ -1,4 +1,4 @@
-.loading-div{
+.loading-div {
   width: 100%;
   height: 100vh;
   background-color: rgba(30, 30, 30, 0.8);
@@ -151,6 +151,18 @@
   transform: scale(1.05);
 }
 
+.recomendado-item .recomendado-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.recomendado-item .recomendado-nome {
+  margin-top: 4px;
+  font-size: 24px;
+  color: #ffffff;
+  text-align: center;
+}
+
 @media screen and (max-width: 768px) {
   .detalhes-container {
     flex-direction: column;
@@ -166,16 +178,20 @@
     font-size: 32px;
   }
 
-  .nota-titulo, .onde-assistir-titulo, .sinopse {
+  .nota-titulo,
+  .onde-assistir-titulo,
+  .sinopse {
     font-size: 16px;
   }
 
-  .nota2, .onde-assistir-info, .sinopse-info {
+  .nota2,
+  .onde-assistir-info,
+  .sinopse-info {
     font-size: 18px;
   }
 
   .recomendados h2 {
     font-size: 28px;
   }
-  
+
 }
