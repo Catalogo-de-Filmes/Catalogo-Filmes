@@ -6,9 +6,10 @@ const app = express();
 
 // ✅ Habilita CORS para o front-end
 app.use(cors({
-  origin: process.env.FRONTEND_URL,
+  origin: 'https://catalogo-filmes-green.vercel.app',
   credentials: true
 }));
+
 
 
 
