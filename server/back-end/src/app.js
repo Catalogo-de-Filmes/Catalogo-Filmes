@@ -5,17 +5,11 @@ const app = express();
 
 
 // ✅ Habilita CORS para o front-end
-const allowedOrigins = [
-  'http://localhost:5173',
-  'https://catalogo-filmes-green.vercel.app/' // ← adicione o domínio real após o deploy
-];
-
 app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) return callback(null, true);
-    callback(new Error('Not allowed by CORS'));
-  }
+  origin: process.env.FRONTEND_URL,
+  credentials: true
 }));
+
 
 
 // 🔐 Middleware de Limite de Requisições
