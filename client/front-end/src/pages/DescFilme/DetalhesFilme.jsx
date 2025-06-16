@@ -116,8 +116,11 @@ export default function DetalhesFilme() {
         <div className="filmes-recomendados">
           {recomendados.map((rec) => (
             <div key={rec.id} className="recomendado-item">
-              <img src={rec.capaUrl} alt={rec.nome} />
-              <p>{rec.nome}</p>
+                    <Link to={`/filme/${filme.id}`} key={`filme-${filme.id}`}
+                      className="movie-item">
+                      <img src={filme.capaUrl} alt={filme.nome} />
+                      <p className="movie-title">{filme.nome}</p>
+                    </Link>
             </div>
           ))}
         </div>
