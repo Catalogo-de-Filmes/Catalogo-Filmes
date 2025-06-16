@@ -70,7 +70,7 @@ export default function Home() {
 
       <main className="main-content">
         <header className="top-bar">
-          <div className="logo"><img src="../images/CF.png" alt="Logo" /></div>
+          <div className="logo"><img src="/images/CF.png" alt="Logo" /></div>
           <div className="input-group">
             <input
               type="text"

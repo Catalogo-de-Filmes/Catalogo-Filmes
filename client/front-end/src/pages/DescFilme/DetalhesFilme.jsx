@@ -75,7 +75,7 @@ export default function DetalhesFilme() {
   return (
     <div className="detalhes-filme">
       <header className="top-bar">
-        <div className="logo"><img src="../images/CF.png" alt="Catálogo de Filmes" /></div>
+        <div className="logo"><img src="/images/CF.png" alt="Catálogo de Filmes" /></div>
         <button className="btn-back" onClick={() => navigate(-1)}>Voltar</button>
         <div></div>
       </header>

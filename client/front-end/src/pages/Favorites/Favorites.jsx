@@ -63,7 +63,7 @@ export default function Favorites() {
       <div className="favorites-empty">
         <header className="top-bar">
           <div className="logo">
-            <img src="../images/CF.png" alt="Catálogo de Filmes" />
+            <img src="/images/CF.png" alt="Catálogo de Filmes" />
           </div>
           <button className="btn-back" onClick={() => navigate('/home')}>Voltar</button>
         </header>
