@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useParams, useNavigate } from 'react-router-dom';
 import { FaArrowLeft, FaStar } from 'react-icons/fa';
 import api from '../../services/api';
@@ -116,7 +117,7 @@ export default function DetalhesFilme() {
         <div className="filmes-recomendados">
           {recomendados.map((rec) => (
             <div key={rec.id} className="recomendado-item">
-              <Link to={`/filme/${rec.id}`} className="recomendado-link">
+              <Link to={`/filme/${rec.id}`} key={rec.id} className="recomendado-link">
                 <img src={rec.capaUrl} alt={rec.nome} />
                 <p>{rec.nome}</p>
               </Link>
