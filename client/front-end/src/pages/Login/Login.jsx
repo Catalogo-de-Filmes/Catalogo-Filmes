@@ -50,7 +50,7 @@ export default function Login() {
         </div>
 
         <div className="image">
-          <img src="/images/Logo catalogo de filmes.png" alt="Catálogo de Filmes" />
+          <img src="/images/Logo.png" alt="Catálogo de Filmes" />
         </div>
       </div>
     </div>
