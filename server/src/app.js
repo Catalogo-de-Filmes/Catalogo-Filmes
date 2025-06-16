@@ -6,14 +6,20 @@ const app = express();
 
 // ✅ Habilita CORS para o front-end
 const allowedOrigins = [
-  process.env.FRONTEND_URL,
-  'https://catalogo-filmes-seven.vercel.app/'
+  'process.env.FRONTEND_URL',
+  'https://catalogo-filmes-seven.vercel.app'
 ];
 
 app.use(cors({
-  origin: allowedOrigins,
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    return callback(new Error('Not allowed by CORS'));
+  },
   credentials: true
 }));
+
 
 
 
