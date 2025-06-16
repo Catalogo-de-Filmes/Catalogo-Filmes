@@ -26,7 +26,7 @@ export default function Login() {
       <div className="header-bar">
         {/* <div className="menu-icon">☰</div> */}
         <div className="logo">
-          <img src="./images/CF.png" alt="Catálogo de Filmes" />
+          <img src="../../images/CF.png" alt="Catálogo de Filmes" />
         </div>
       </div>
 
@@ -50,7 +50,7 @@ export default function Login() {
         </div>
 
         <div className="image">
-          <img src="./images/Logo catalogo de filmes.png" alt="Catálogo de Filmes" />
+          <img src="../../images/Logo catalogo de filmes.png" alt="Catálogo de Filmes" />
         </div>
       </div>
     </div>
