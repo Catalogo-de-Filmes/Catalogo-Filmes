@@ -5,10 +5,16 @@ const app = express();
 
 
 // ✅ Habilita CORS para o front-end
+const allowedOrigins = [
+  process.env.FRONTEND_URL,
+  'https://catalogo-filmes-seven.vercel.app/'
+];
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL,
+  origin: allowedOrigins,
   credentials: true
 }));
+
 
 
 
